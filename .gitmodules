@@ -1,0 +1,3 @@
+[submodule "nix/hashicorp.nix-shell"]
+	path = nix/hashicorp.nix-shell
+	url = git@github.com:vidbina/hashicorp.nix-shell.git
