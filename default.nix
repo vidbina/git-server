@@ -1,1 +1,1 @@
-/store/vidbina.home/infra/terraform.env/default.nix
+nix/hashicorp.nix-shell/default.nix
