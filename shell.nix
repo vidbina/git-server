@@ -1,0 +1,1 @@
+/store/vidbina.home/infra/terraform.env/shell.nix
