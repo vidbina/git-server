@@ -1,3 +1,6 @@
 *secret*
 .terraform
 GOPATH
+
+*.tfout
+*.tfstate
