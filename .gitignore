@@ -3,4 +3,4 @@
 GOPATH
 
 *.tfout
-*.tfstate
+*.tfstate*
