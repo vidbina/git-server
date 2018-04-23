@@ -1,5 +1,9 @@
 variable "api_token" {}
 
+variable "machine_count" {
+  default = 1
+}
+
 variable "machine_prefix" {}
 
 variable "machine_image" {}
