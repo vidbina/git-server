@@ -13,6 +13,10 @@ resource "hcloud_server" "gits" {
   server_type = "${var.machine_vm_type}"
 
   ssh_keys = ["${hcloud_ssh_key.active_keys.*.id}"]
+
+  provisioner "salt-masterless" {
+    local_state_tree = "${path.root}/salt/base.sls"
+  }
 }
 
 output "git_keys" {
