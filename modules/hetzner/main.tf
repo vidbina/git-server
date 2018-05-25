@@ -8,14 +8,31 @@ resource "hcloud_server" "gits" {
     : "${format("%s-%02d", var.machine_prefix, count.index)}"
   }"
 
-  image = "${var.machine_image}"
-  location = "${var.machine_location}"
+  image       = "${var.machine_image}"
+  location    = "${var.machine_location}"
   server_type = "${var.machine_vm_type}"
 
   ssh_keys = ["${hcloud_ssh_key.active_keys.*.id}"]
 
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "sudo mkdir /srv/salt/",
+  #   ]
+
+
+  #   connection {
+  #     type = "ssh"
+  #     user = "root"
+  #   }
+  # }
+
   provisioner "salt-masterless" {
-    local_state_tree = "${path.root}/salt/base.sls"
+    local_state_tree = "${path.root}/salt/"
+
+    connection {
+      type = "ssh"
+      user = "root"
+    }
   }
 }
 
