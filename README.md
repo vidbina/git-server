@@ -26,6 +26,11 @@ active_ssh_keys = [
 ]
 ```
 
+> NOTE: That the first keyname listed in `active_ssh_keys` will serve as the
+> machine key. So in the case of a CI/CD pipeline, we will pick the first key
+> in that list to run additional terraform provisioners (e.g.: shell or
+> salt-masterless)
+
 ## Machine details
 
 ```HCL

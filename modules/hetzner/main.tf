@@ -19,8 +19,7 @@ resource "hcloud_server" "gits" {
     remote_state_tree = "/srv/salt/"
 
     connection {
-      type = "ssh"
-      user = "root"
+      private_key = "${file("${path.root}/ssh/${var.active_ssh_keys[0]}")}"
     }
   }
 }
