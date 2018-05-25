@@ -14,20 +14,9 @@ resource "hcloud_server" "gits" {
 
   ssh_keys = ["${hcloud_ssh_key.active_keys.*.id}"]
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "sudo mkdir /srv/salt/",
-  #   ]
-
-
-  #   connection {
-  #     type = "ssh"
-  #     user = "root"
-  #   }
-  # }
-
   provisioner "salt-masterless" {
-    local_state_tree = "${path.root}/salt/"
+    local_state_tree  = "${path.root}/salt/"
+    remote_state_tree = "/srv/salt/"
 
     connection {
       type = "ssh"
