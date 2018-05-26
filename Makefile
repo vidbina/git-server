@@ -43,6 +43,9 @@ validate:
 	
 setup: fetch init
 
+ssh:
+	ssh -i ssh/vidbina root@`terraform output -json ip4_addrs | jq -r '.value.git'`
+
 .PHONY: \
 	apply \
 	console \
@@ -51,4 +54,5 @@ setup: fetch init
 	fetch_terraform_hcloud \
 	plan \
 	setup \
+	ssh \
 	validate
