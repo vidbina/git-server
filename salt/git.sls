@@ -7,8 +7,7 @@ git:
   user.present:
     - name: git
     - fullname: Git
-    # TODO: Examine whether to make shell /bin/nologin
-    - shell: /bin/bash
+    - shell: /usr/bin/git-shell
     - home: /home/git
     - uid: 917
     - gid: 917
