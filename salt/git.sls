@@ -14,3 +14,8 @@ git:
     - gid: 917
     - require:
       - group: git
+  ssh_auth.present:
+    - user: git
+    - source: salt://authorized_keys
+    - require:
+      - user: git
