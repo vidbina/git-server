@@ -10,6 +10,8 @@
 
 ## SSH Keys
 
+### root
+
 Create a `ssh` directory and copy or symlink the necessary public keys into
 this directory named as `KEYNAME.pub`, where `KEYNAME` is a reference that we
 will use to identify the keys in the terraform code.
@@ -31,6 +33,20 @@ active_ssh_keys = [
 > in that list to run additional terraform provisioners (e.g.: shell or
 > salt-masterless)
 
+### git
+
+In order to setup the git user with the appropriate ssh keys, one may want to
+populate the `salt/authorized_keys` file to contain all the authorized keys for
+git access by concatenating public keys as demonstrated in the following example:
+
+```
+cat some_key.pub >> salt/authorized_keys
+```
+
+where some_key.pub is added to the authorized keys file.
+
+Study the [OpenSSH documentation][auth-keys-openssh] for more information.
+
 ## Machine details
 
 ```HCL
@@ -41,3 +57,5 @@ machine_location = "fsn1"
 machine_prefix = "git"
 machine_type = "cx11"
 ```
+
+[auth-keys-openssh]: https://www.ssh.com/ssh/authorized_keys/openssh
