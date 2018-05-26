@@ -1,6 +1,8 @@
 *secret*
 .terraform
 GOPATH
+personal.env
+salt/authorized_keys
 
 *.tfout
 *.tfstate*
