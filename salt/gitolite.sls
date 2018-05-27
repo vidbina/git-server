@@ -12,7 +12,7 @@ ensure git user is present:
   user.present:
     - name: git
     - fullname: Git
-    #- shell: /usr/bin/git-shell
+    - shell: /bin/bash #/usr/bin/git-shell
     - home: /home/git
     - uid: 917
     - gid: 917
@@ -49,3 +49,9 @@ run the gitolite installer:
     - require:
       - git: https://github.com/sitaramc/gitolite
       - file: /home/git/bin
+setup gitolite:
+  cmd.run:
+    - name: gitolite setup -pk admin.pub
+    - runas: git
+    - require:
+      - cmd: run the gitolite installer
