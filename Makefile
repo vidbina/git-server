@@ -8,6 +8,9 @@ HETZNER_VAR_FILES_ARGS=\
 
 HETZNER_TERRAFORM_OUTPUT_FILE=git.hetzner.tfout
 
+SSH_KEY?=admin
+SSH_USER?=root
+
 #GOPATH_BIN=$(realpath GOPATH)/bin
 
 fetch_terraform_hcloud:
@@ -44,7 +47,7 @@ validate:
 setup: fetch init
 
 ssh:
-	ssh -i ssh/vidbina root@`terraform output -json ip4_addrs | jq -r '.value.git'`
+	ssh -i ssh/${SSH_KEY} ${SSH_USER}@`terraform output -json ip4_addrs | jq -r '.value.git'`
 
 .PHONY: \
 	apply \
