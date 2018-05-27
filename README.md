@@ -8,7 +8,16 @@
  - ???
  - Tear-down setup using `make destroy`
 
-## SSH Keys
+## Gitolite
+
+> **NOTE**: This is the preferred method over plain git.
+
+In order to use gitolite, one should provide an administrator key at the path
+`salt/admin.pub`.
+
+## Plain git
+
+> **NOTE**: Just here for historic reasons. :wink:
 
 ### root
 

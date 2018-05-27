@@ -3,6 +3,7 @@
 GOPATH
 personal.env
 salt/authorized_keys
+salt/admin.pub
 
 *.tfout
 *.tfstate*
