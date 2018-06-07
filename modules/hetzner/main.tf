@@ -25,7 +25,3 @@ resource "hcloud_server" "gits" {
     }
   }
 }
-
-output "git_keys" {
-  value = "${hcloud_server.gits.*.ssh_keys}"
-}
