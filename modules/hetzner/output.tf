@@ -12,6 +12,6 @@ output "ids" {
   )}"
 }
 
-output "git_keys" {
+output "ssh_keys" {
   value = "${hcloud_server.gits.*.ssh_keys}"
 }
