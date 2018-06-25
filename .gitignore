@@ -7,3 +7,5 @@ salt/admin.pub
 
 *.tfout
 *.tfstate*
+keys.tfvars
+ssh
