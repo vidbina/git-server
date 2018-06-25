@@ -1,4 +1,4 @@
-resource "hcloud_server" "gits" {
+resource "hcloud_server" "gitolite" {
   count = "${var.machine_count}"
 
   # When we have a single machine just name it by the prefix,
