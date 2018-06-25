@@ -15,7 +15,7 @@ resource "hcloud_server" "gitolite" {
   ssh_keys = ["${hcloud_ssh_key.active_keys.*.id}"]
 
   provisioner "salt-masterless" {
-    local_state_tree  = "${path.root}/salt/"
+    local_state_tree  = "${path.root}/salt/gitolite"
     remote_state_tree = "/srv/salt/"
 
     connection {
