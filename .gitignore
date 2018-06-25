@@ -2,8 +2,10 @@
 .terraform
 GOPATH
 personal.env
-salt/authorized_keys
-salt/admin.pub
+**/authorized_keys
+**.pub
 
 *.tfout
 *.tfstate*
+keys.tfvars
+ssh

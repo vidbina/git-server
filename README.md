@@ -1,19 +1,18 @@
 # Usage
 
- - Install all terraform plugins using `make fetch`
- - Init terraform environment using `make init`
- - Validate setup using `make validate`
- - Plan setup using `make plan`
- - Apply setup using `make apply`
+ - Initialize Terraform environment using `make init`
+ - Validate configuration using `make validate`
+ - Plan configuration using `make plan`
+ - Apply configuration using `make apply`
  - ???
- - Tear-down setup using `make destroy`
+ - Tear-down configuration using `make destroy`
 
 ## Gitolite
 
 > **NOTE**: This is the preferred method over plain git.
 
-In order to use gitolite, one should provide an administrator key at the path
-`salt/admin.pub`.
+In order to use gitolite, one should provide an SSH key for the admin user at
+the path `salt/gitolite/admin.pub`.
 
 ## Plain git
 
@@ -23,7 +22,7 @@ In order to use gitolite, one should provide an administrator key at the path
 
 Create a `ssh` directory and copy or symlink the necessary public keys into
 this directory named as `KEYNAME.pub`, where `KEYNAME` is a reference that we
-will use to identify the keys in the terraform code.
+will use to identify the keys in the Terraform configuration.
 
 Create `keys.tfvars` and add the names to the `active_ssh_keys` variables.
 
@@ -39,7 +38,7 @@ active_ssh_keys = [
 
 > NOTE: That the first keyname listed in `active_ssh_keys` will serve as the
 > machine key. So in the case of a CI/CD pipeline, we will pick the first key
-> in that list to run additional terraform provisioners (e.g.: shell or
+> in that list to run additional Terraform provisioners (e.g.: shell or
 > salt-masterless)
 
 ### git

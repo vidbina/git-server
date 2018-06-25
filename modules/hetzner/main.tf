@@ -1,4 +1,4 @@
-resource "hcloud_server" "gits" {
+resource "hcloud_server" "gitolite" {
   count = "${var.machine_count}"
 
   # When we have a single machine just name it by the prefix,
@@ -15,7 +15,7 @@ resource "hcloud_server" "gits" {
   ssh_keys = ["${hcloud_ssh_key.active_keys.*.id}"]
 
   provisioner "salt-masterless" {
-    local_state_tree  = "${path.root}/salt/"
+    local_state_tree  = "${path.root}/salt/gitolite"
     remote_state_tree = "/srv/salt/"
 
     connection {
