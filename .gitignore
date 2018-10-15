@@ -9,3 +9,5 @@ personal.env
 *.tfstate*
 keys.tfvars
 ssh
+
+backups
